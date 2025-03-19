@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LoadingSpinner = () => {
+const LoadingSpinner: React.FC = () => {
   return (
     <div className="loading-spinner">
       <div className="spinner"></div>
@@ -8,4 +8,4 @@ const LoadingSpinner = () => {
   );
 }
 
-export default LoadingSpinner;
+export default LoadingSpinner; 

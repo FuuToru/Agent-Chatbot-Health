@@ -1,7 +1,13 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-const MessageBubble = ({ message, isUser, time }) => {
+interface MessageBubbleProps {
+  message: string;
+  isUser: boolean;
+  time: string;
+}
+
+const MessageBubble: React.FC<MessageBubbleProps> = ({ message, isUser, time }) => {
   const messageClass = isUser ? 'user-message' : 'ai-message';
 
   return (
@@ -14,4 +20,4 @@ const MessageBubble = ({ message, isUser, time }) => {
   );
 }
 
-export default MessageBubble;
+export default MessageBubble; 

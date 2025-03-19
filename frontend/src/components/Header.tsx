@@ -4,8 +4,10 @@ import { MdOutlineHistoryToggleOff } from "react-icons/md";
 
 import './Header.css';
 
-const Header = () => {
-  const [chatState, setChatState] = useState('closed');
+type ChatState = 'closed' | 'open';
+
+const Header: React.FC = () => {
+  const [chatState, setChatState] = useState<ChatState>('closed');
 
   const toggleChatState = () => {
     setChatState(prevState => (prevState === 'closed' ? 'open' : 'closed'));
@@ -29,4 +31,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header; 

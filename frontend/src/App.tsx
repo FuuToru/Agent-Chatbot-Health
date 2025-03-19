@@ -3,7 +3,7 @@ import Header from './components/Header';
 import ChatBox from './components/ChatBox';
 import './styles.css';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div className="app">
       <Header />
@@ -12,4 +12,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default App; 
