@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { LuMessageCircleDashed } from "react-icons/lu";
 import { MdOutlineHistoryToggleOff } from "react-icons/md";
 
-import './Header.css';
+import '../assets/css/Header.css';
 
 type ChatState = 'closed' | 'open';
 

@@ -2,7 +2,7 @@ import React, { useState, KeyboardEvent, ChangeEvent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faPaperclip, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faReact } from '@fortawesome/free-brands-svg-icons';
-import './MessageInput.css';
+import '../assets/css/MessageInput.css';
 
 interface MessageInputProps {
   onSendMessage: (message: string) => void;

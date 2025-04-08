@@ -4,7 +4,7 @@ import MessageInput from './MessageInput';
 import LoadingSpinner from './LoadingSpinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHospital } from '@fortawesome/free-regular-svg-icons';
-import './ChatBox.css';
+import '../assets/css/ChatBox.css';
 
 interface Message {
   message: string;
