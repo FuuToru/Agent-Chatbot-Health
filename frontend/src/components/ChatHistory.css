@@ -1,0 +1,129 @@
+  /* Thanh lịch sử */
+  .chat-history {
+    width: 260px;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    background: #212327;
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+  }
+  
+  .chat-history.visible {
+    transform: translateX(0);
+  }
+  
+  .history-header {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .history-header h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .new-chat-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .session-list {
+    padding: 10px;
+  }
+  
+  .session-item {
+    padding: 12px;
+    margin-bottom: 8px;
+    background-color:  #212327;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: background-color 0.2s;
+  }
+  
+  .session-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .session-item.active {
+    background-color: #e6f7ff;
+    border-left: 3px solid #1890ff;
+  }
+  
+  .session-info {
+    flex: 1;
+  }
+  
+  .session-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  
+  .session-date {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  
+  .session-preview {
+    font-size: 13px;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .delete-session-btn {
+    background: none;
+    border: none;
+    color: #ff4d4f;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    visibility: hidden;
+  }
+  
+  .session-item:hover .delete-session-btn {
+    visibility: visible;
+  }
+  
+  .delete-session-btn:hover {
+    background-color: rgba(255, 77, 79, 0.1);
+  }
+
+
+/* Khi visible */
+.chat-history.visible {
+  transform: translateX(0);
+}
+
+/* Phần khung chat */
+.chatbox-container {
+  flex: 1;
+  transition: margin-left 0.3s ease;
+  margin-left: 0;
+}
+
+.chatbox-container.with-history {
+  margin-left: 260px; /* Khoảng cách bằng chiều rộng thanh history */
+}

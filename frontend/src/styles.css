@@ -13,6 +13,11 @@ body {
 }
 
 
+/* .main-content {
+  display: flex;
+  flex: 1;
+  position: relative;
+} */
 
 .chat-box {
   flex: 1;

@@ -1,30 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { LuMessageCircleDashed } from "react-icons/lu";
 import { MdOutlineHistoryToggleOff } from "react-icons/md";
 
 import '../assets/css/Header.css';
 
-type ChatState = 'closed' | 'open';
+interface HeaderProps {
+  onToggleHistory: () => void;
+}
 
-const Header: React.FC = () => {
-  const [chatState, setChatState] = useState<ChatState>('closed');
-
-  const toggleChatState = () => {
-    setChatState(prevState => (prevState === 'closed' ? 'open' : 'closed'));
-  };
-
+const Header: React.FC<HeaderProps> = ({ onToggleHistory }) => {
   return (
     <div className="header">
       {/* Icon for the chat */}
-      <button className="chat-icon" onClick={toggleChatState}>
+      <button className="chat-icon">
         <LuMessageCircleDashed />
       </button>
 
       {/* Chat title */}
-      <div>Temporary Chat</div>
+      <div>ChatHealth</div>
 
-      {/* Chat state toggle */}
-      <button className="chat-state" onClick={toggleChatState}>
+      {/* Chat state toggle - now toggles history */}
+      <button className="chat-state" onClick={onToggleHistory}>
         <MdOutlineHistoryToggleOff />
       </button>
     </div>

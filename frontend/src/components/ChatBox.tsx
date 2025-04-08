@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MessageBubble from './MessageBubble';
 import MessageInput from './MessageInput';
 import LoadingSpinner from './LoadingSpinner';
@@ -12,10 +12,33 @@ interface Message {
   time: string;
 }
 
-const ChatBox: React.FC = () => {
+interface ChatBoxProps {
+  sessionId: string;
+}
+
+const ChatBox: React.FC<ChatBoxProps> = ({ sessionId }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showIntro, setShowIntro] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (sessionId === 'new') {
+      setMessages([]);
+      setShowIntro(true);
+    } else {
+      const savedMessages = localStorage.getItem(`chat_${sessionId}`);
+      if (savedMessages) {
+        setMessages(JSON.parse(savedMessages));
+        setShowIntro(false);
+      }
+    }
+  }, [sessionId]);
+
+  const saveMessages = (updatedMessages: Message[]) => {
+    if (sessionId !== 'new') {
+      localStorage.setItem(`chat_${sessionId}`, JSON.stringify(updatedMessages));
+    }
+  };
 
   const handleSendMessage = async (message: string) => {
     if (showIntro) setShowIntro(false);
@@ -78,6 +101,8 @@ const ChatBox: React.FC = () => {
       setMessages((prevMessages) => [...prevMessages, errorMessage]);
       setIsLoading(false);
     }
+    
+    saveMessages(messages);
   };
   
   return (
